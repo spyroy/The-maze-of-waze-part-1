@@ -36,16 +36,21 @@ class DGraphTest {
 		Point3D p1 = new Point3D(1, 0, 0);
 		Point3D p2 = new Point3D(0, 1, 0);
 		Point3D p3 = new Point3D(0, 0, 1);
-		node n1 = new node(0, p1, 1);
+		node n1 = new node(0, p1, -5);
 		node n2 = new node(1, p2, 10);
 		node n3 = new node(2, p3, 100);
-		g.addNode(n1);
+		g.addNode(n1);//not added
 		g.addNode(n2);
 		g.addNode(n3);
+		node n = (node) g.getNode(1);
+		if(g.getNode(1) != n)
+			fail();
 		if (g.getNode(1).getKey() != 1) {
 			fail();
 		}
-	}
+		if(g.getNode(0)!=null)
+			fail();
+		}
 
 	@Test
 	void testGetEdge() {
@@ -175,8 +180,9 @@ class DGraphTest {
 		g.connect(n1.getKey(), n2.getKey(), 2);
 		g.connect(n2.getKey(), n1.getKey(), 2);
 		g.connect(n2.getKey(), n3.getKey(), 3);
+		g.connect(n1.getKey(), n3.getKey(), 3);
 		g.removeNode(1);
-		if (g.edgeSize() != 0) {
+		if (g.edgeSize() != 1) {
 			fail();
 		}
 		if(g.getEdge(n2.getKey(), n3.getKey()) != null)
@@ -278,12 +284,11 @@ class DGraphTest {
 		if(g.getEdge(n2.getKey(), n1.getKey())!=null)
 			fail();
 		g.removeEdge(1, 2);
-		g.removeEdge(0, 1);
+		g.removeEdge(2, 1);
 		g.removeNode(0);
 		g.removeNode(1);
 		g.removeNode(2);
-		System.out.println(g.getMC());
-		assertEquals(g.getMC(), 10);
+		assertEquals(g.getMC(), 9);
 	}
 
 }
