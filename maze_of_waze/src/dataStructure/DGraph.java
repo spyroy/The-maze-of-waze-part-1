@@ -110,10 +110,12 @@ public class DGraph<edgeID> implements graph {
 		}
 
 		// remove all edges coming out of key-node.
-		edgescount -= this.edgeMap.get(key).size();
+		if(this.edgeMap.get(key) != null ) 
+			edgescount -= this.edgeMap.get(key).size();
 		this.edgeMap.remove(key);
 		// remove the key-node.
 		this.nodeMap.remove(key);
+		MC++;
 
 		return n;
 	}

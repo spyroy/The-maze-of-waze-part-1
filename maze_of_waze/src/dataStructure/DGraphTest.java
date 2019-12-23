@@ -88,7 +88,12 @@ class DGraphTest {
 		g.addNode(n1);
 		g.addNode(n2);
 		g.addNode(n3);
-		if (g.nodeSize() != 2) {
+		for(int i = 0; i < 1000000; i++) {
+			Point3D p = new Point3D(Math.random()*(10-1),Math.random()*(10-1),Math.random()*(10-1));
+			node n = new node(i+3,p,Math.random()*(100-1));
+			g.addNode(n);
+		}
+		if (g.nodeSize() != 1000002) {
 			fail();
 		}
 	}
@@ -270,9 +275,15 @@ class DGraphTest {
 		g.addNode(n3);
 		g.connect(n1.getKey(), n2.getKey(), 2);
 		g.connect(n2.getKey(), n3.getKey(), 3);
+		if(g.getEdge(n2.getKey(), n1.getKey())!=null)
+			fail();
 		g.removeEdge(1, 2);
 		g.removeEdge(0, 1);
-		assertEquals(g.getMC(), 7);
+		g.removeNode(0);
+		g.removeNode(1);
+		g.removeNode(2);
+		System.out.println(g.getMC());
+		assertEquals(g.getMC(), 10);
 	}
 
 }
