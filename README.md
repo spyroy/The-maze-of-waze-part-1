@@ -1,3 +1,3 @@
 # the-maze-of-waze
-# fix DgraphTest when swaping between n1 and n2 keys
+# to do: finish algorithms and gui
 OOP project 2
