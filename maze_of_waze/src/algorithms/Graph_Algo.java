@@ -1,7 +1,10 @@
 package algorithms;
 
+import java.util.HashMap;
 import java.util.List;
 
+import dataStructure.DGraph;
+import dataStructure.edge_data;
 import dataStructure.graph;
 import dataStructure.node_data;
 /**
@@ -12,10 +15,18 @@ import dataStructure.node_data;
  */
 public class Graph_Algo implements graph_algorithms{
 
+	public HashMap<Integer, node_data> nodesMap = new HashMap<Integer, node_data>();
+	public HashMap<Integer, HashMap<Integer,edge_data>> edgesMap = new HashMap<Integer, HashMap<Integer,edge_data>>();
+	public int edgesCounter=0;
+	public int MC=0;
+	private DGraph gr;
 	@Override
-	public void init(graph g) {
-		// TODO Auto-generated method stub
-		
+	public void init(graph g)
+	{
+		if(g instanceof DGraph) 
+			this.gr=(DGraph) g; 	
+		else 
+			throw new RuntimeException("Error initialaizing the graph"); 
 	}
 
 	@Override
@@ -55,9 +66,10 @@ public class Graph_Algo implements graph_algorithms{
 	}
 
 	@Override
-	public graph copy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public graph copy() 
+	{
+		graph copy = new DGraph(this.gr);
+		return copy;
+	}	
 
 }

@@ -25,7 +25,13 @@ public class DGraph<edgeID> implements graph {
 		this.edgescount = 0;
 		this.MC = 0;
 	}
-
+	public DGraph(DGraph other)
+	{
+		this.nodeMap=other.nodeMap;
+		this.edgeMap=other.edgeMap;
+		this.edgescount=other.edgescount;
+		this.MC=other.MC;
+	}
 	@Override
 	public node_data getNode(int key) {
 		return this.nodeMap.get(key);
