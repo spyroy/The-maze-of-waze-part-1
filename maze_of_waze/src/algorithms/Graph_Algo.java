@@ -2,7 +2,7 @@ package algorithms;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
+import java.util.HashMap;
 import java.util.HashSet;
 
 import java.util.List;
@@ -32,11 +32,18 @@ import java.io.ObjectOutputStream;
  */
 public class Graph_Algo implements graph_algorithms {
 
+	public HashMap<Integer, node_data> nodesMap = new HashMap<Integer, node_data>();
+	public HashMap<Integer, HashMap<Integer,edge_data>> edgesMap = new HashMap<Integer, HashMap<Integer,edge_data>>();
+	public int edgesCounter=0;
+	public int MC=0;
 	private graph g;
 
 	@Override
 	public void init(graph g) {
-		this.g = g;
+		if(g instanceof DGraph) 
+			this.g = (DGraph) g; 	
+		else 
+			throw new RuntimeException("Error initialaizing the graph");
 	}
 
 	@Override
@@ -148,75 +155,7 @@ public class Graph_Algo implements graph_algorithms {
 
 	@Override
 	public graph copy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public static void main(String[] args) throws Exception {
-
-		Point3D p1 = new Point3D(1, 0, 0);
-		Point3D p2 = new Point3D(0, 1, 0);
-		Point3D p3 = new Point3D(0, 0, 1);
-		Point3D p4 = new Point3D(2, 5, 1);
-		Point3D p5 = new Point3D(2, 3, 5);
-		Point3D p6 = new Point3D(4, 6, 1);
-		Point3D p7 = new Point3D(6, 6, 1);
-		node n1 = new node(0, p1, 0);
-		node n2 = new node(1, p2, 0);
-		node n3 = new node(2, p3, 0);
-		node n4 = new node(3, p4, 0);
-		node n5 = new node(4, p4, 0);
-		node n6 = new node(5, p4, 0);
-		node n7 = new node(6, p4, 0);
-		graph g = new DGraph();
-		g.addNode(n1);
-		g.addNode(n2);
-		g.addNode(n3);
-		g.addNode(n4);
-		g.addNode(n5);
-		g.addNode(n6);
-		g.addNode(n7);
-		g.connect(0, 1, 4);
-		g.connect(0, 2, 3);
-		g.connect(0, 3, 7);
-		g.connect(1, 2, 6);
-		g.connect(1, 4, 5);
-		g.connect(2, 4, 11);
-		g.connect(2, 3, 8);
-		g.connect(3, 4, 2);
-		g.connect(3, 5, 5);
-		g.connect(4, 5, 10);
-		g.connect(4, 6, 2);
-		g.connect(5, 6, 3);
-		g.connect(6, 3, 2);
-
-		Graph_Algo algo = new Graph_Algo();
-		Graph_Algo algo2 = new Graph_Algo();
-		algo.init(g);
-
-		System.out.println(algo.shortestPathDist(0, 6));
-		for (node_data n : algo.shortestPath(0, 6)) {
-			System.out.print(n.getKey() + ", ");
-		}
-//		algo.print();
-//		graph m=algo.copy();
-//		System.out.println("**************");
-//		for(node_data node: m.getV()) {
-//			System.out.println(node.toString());
-//			System.out.println("Edges:\n");
-//			System.out.println(m.getE(node.getKey()));
-//		}
-//		DGraph g2 = new DGraph(4);
-//		g2.connect(0, 1, 10);
-//		g2.connect(1, 2, 20);
-//		g2.connect(2, 4, 30);
-//		//g2.connect(4, 2, 40);
-//		g2.connect(2, 3, 1);
-//		g2.connect(3, 0, 2);
-//		algo.init(g2);
-//		algo.save("file.txt");
-//		algo2.init("file.txt");
-//		algo2.print();
-		// System.out.println(algo.isConnected());
+		graph copy = g;
+		return copy;
 	}
 }
