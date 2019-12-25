@@ -50,7 +50,7 @@ public class DGraph<edgeID> implements graph {
 			System.err.println("Err: key already exists, add fail");
 			return;
 		}
-		if(n.getWeight()<=0)
+		if(n.getWeight()<0)
 		{
 			System.err.println("The weight must be positive! . The node hadn't been added successfully..");
 			return;
@@ -92,7 +92,10 @@ public class DGraph<edgeID> implements graph {
 	}
 
 	@Override
-	public Collection<edge_data> getE(int node_id) {
+	public Collection<edge_data> getE(int node_id)
+	{
+		if(this.edgeMap.get(node_id).values() == null)
+			return null;
 		Collection<edge_data> col =  this.edgeMap.get(node_id).values();
 		return col;
 	}

@@ -2,7 +2,8 @@ package algorithms;
 import java.util.Comparator;
 import dataStructure.node_data;
 
-public class node_Comperator implements Comparator<node_data>{
+public class node_Comperator implements Comparator<node_data>
+{
 	
 	@Override
     public int compare(node_data n1,node_data n2)
