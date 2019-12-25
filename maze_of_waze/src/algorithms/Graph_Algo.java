@@ -214,9 +214,11 @@ public class Graph_Algo implements graph_algorithms
 		for (node_data n : nodes)
 		{
 			Collection<edge_data> edges = g.getE(n.getKey());
-			for (edge_data e : edges)
-			{// Add all edges (0 or more) by connecting key,dest and weight
-				copy.connect(n.getKey(), e.getDest(), e.getWeight());
+			if(edges!=null){
+				for (edge_data e : edges)
+				{// Add all edges (0 or more) by connecting key,dest and weight
+					copy.connect(n.getKey(), e.getDest(), e.getWeight());
+				}
 			}
 		}
 		return copy;
