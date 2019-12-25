@@ -94,7 +94,7 @@ public class DGraph<edgeID> implements graph {
 	@Override
 	public Collection<edge_data> getE(int node_id)
 	{
-		if(this.edgeMap.get(node_id).values() == null)
+		if(this.edgeMap.get(node_id)==null)
 			return null;
 		Collection<edge_data> col =  this.edgeMap.get(node_id).values();
 		return col;
