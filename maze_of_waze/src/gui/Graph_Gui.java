@@ -36,8 +36,8 @@ import utils.*;
 /**
  * This class makes a gui window to represent a graph and
  * use the Algorithms from class Graph_Algo on live.
- * (use the methods and represent it on the gui window while it is still up).
- * @author YosefTwito and EldarTakach
+ * dataStructure contains the "dots" created in the background and also on screen.
+ * @authors Matan Greenberg, Or Mendel
  */
 
 public class Graph_Gui extends JFrame implements ActionListener, MouseListener{
@@ -93,8 +93,8 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener{
 	
 	private void initGUI(graph g) {
 		this.gr=g;
-		this.setSize(1280, 720);
-		this.setTitle("Hello and welcome to The Maze Of Waze !");
+		this.setSize(1280, 800);
+		this.setTitle("The MAZE Of WAZE");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ImageIcon img = new ImageIcon("navigate.jpg");
 		this.setIconImage(img.getImage());
@@ -103,41 +103,44 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener{
 		MenuBar menuBar = new MenuBar();
 		this.setMenuBar(menuBar);
 		
-		Menu file = new Menu("File ");
+		Menu file = new Menu("File");
 		menuBar.add(file);
 		
-		Menu alg  = new Menu("Algorithms ");
+		Menu alg  = new Menu("Algorithms");
 		menuBar.add(alg);
 		
-		MenuItem item2 = new MenuItem("Init From textFile ");
+		MenuItem item2 = new MenuItem("Init From textFile");
 		item2.addActionListener(this);
 		file.add(item2);
 		
-		MenuItem item3 = new MenuItem("Save as textFile ");
+		MenuItem item3 = new MenuItem("Save as textFile");
 		item3.addActionListener(this);
 		file.add(item3);
 		
-		MenuItem item4 = new MenuItem("Save as png ");
+		MenuItem item4 = new MenuItem("Save as png");
 		item4.addActionListener(this);
 		file.add(item4);
 		
-		MenuItem item5 = new MenuItem("Show Shortest Path  ");
+		MenuItem item4_1 = new MenuItem("Save as jpg");
+		item4.addActionListener(this);
+		file.add(item4_1);
+		
+		MenuItem item5 = new MenuItem("Find shortest Path");
 		item5.addActionListener(this);
 		alg.add(item5);
 		
-		MenuItem item1 = new MenuItem("Shortest Path Distance");
+		MenuItem item1 = new MenuItem("shortest path distance");
 		item1.addActionListener(this);
 		alg.add(item1);
 		
-		MenuItem item6 = new MenuItem("The SalesMan Problem");
+		MenuItem item6 = new MenuItem("Traveling Salesman Problem (TSP)");
 		item6.addActionListener(this);
 		alg.add(item6);
 		
-		MenuItem item7 = new MenuItem("Is it Conncected ?"  );
+		MenuItem item7 = new MenuItem("isConnected?");
 		item7.addActionListener(this);
 		alg.add(item7);
 	 
-		
 		this.addMouseListener(this);
 	}
 
@@ -261,10 +264,17 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener{
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e) {
+	/**
+	 * Connect nodes in the graph
+	 * @param e
+	 */
+	public void mousePressed(MouseEvent e) 
+	{
 		System.out.println("mousePressed");
 	}
-
+	/**
+	 * 
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		System.out.println("mouseReleased");
