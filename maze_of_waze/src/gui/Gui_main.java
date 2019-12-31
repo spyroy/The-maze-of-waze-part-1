@@ -17,7 +17,7 @@ public class Gui_main {
 		Point3D p5 = new Point3D(687, 206);
 		Point3D p6 = new Point3D(142, 702);
 		Point3D p7 = new Point3D(232, 437);
-		Point3D p8 = new Point3D(191, 602);
+		Point3D p8 = new Point3D(300, 602);
 		node n1 = new node(1,p1, 5);
 		node n2 = new node(2,p2, 10);
 		node n3 = new node(3,p3, 15.5);

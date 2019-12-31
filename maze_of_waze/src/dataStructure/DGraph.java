@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.management.RuntimeErrorException;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
 public class DGraph<edgeID> implements graph {
@@ -71,6 +72,7 @@ public class DGraph<edgeID> implements graph {
 		edge e = new edge(src, dest, w);
 		if (nodeMap.get(src) == null || nodeMap.get(dest) == null) {
 			System.err.println("can't connect");
+			//throw new RuntimeErrorException(null);
 		}
 		if (edgeMap.get(src) != null) {
 			edgeMap.get(src).put(dest, e);

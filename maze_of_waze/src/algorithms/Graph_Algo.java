@@ -42,6 +42,23 @@ public class Graph_Algo implements graph_algorithms {
 	public int MC = 0;
 	private graph g;
 
+	public Graph_Algo(graph _graph) 
+	{
+		this.init(_graph);
+	}
+	/**
+	 * Creating an empty graph
+	 */
+	public Graph_Algo() 
+	{
+		graph p = new DGraph();
+		this.init(p);
+	}
+
+//	public Graph_Algo() {
+//		// TODO Auto-generated constructor stub
+//	}
+
 	@Override
 	/**
 	 * function for the programmer
@@ -76,7 +93,7 @@ public class Graph_Algo implements graph_algorithms {
 			out.writeObject(g);
 			out.close();
 			file.close();
-		} catch (Throwable e) {
+		} catch (Exception e) {
 			System.out.println("problem with file");
 			e.printStackTrace();
 		}
@@ -87,8 +104,10 @@ public class Graph_Algo implements graph_algorithms {
 	public boolean isConnected() {
 		Collection<node_data> nodes = g.getV();
 		Iterator<node_data> it = nodes.iterator();
-		Graph_Algo gr = new Graph_Algo();
-		gr.init(g);
+		Graph_Algo gr = new Graph_Algo(g);
+//		gr.init(g);
+		if(nodes.isEmpty())
+			return false;
 		while (it.hasNext()) {
 			node_data tmp = it.next();
 			for (node_data n : g.getV()) {
@@ -185,8 +204,8 @@ public class Graph_Algo implements graph_algorithms {
 	public List<node_data> TSP(List<Integer> targets) {
 		if (targets.isEmpty())
 			return null;
-		Graph_Algo gr = new Graph_Algo();
-		gr.init(g);
+		Graph_Algo gr = new Graph_Algo(g);
+//		gr.init(g);
 		Collections.sort(targets);
 		List<node_data> tmp = new ArrayList<node_data>();
 		int src = targets.get(0);
@@ -285,21 +304,24 @@ public class Graph_Algo implements graph_algorithms {
 		g.connect(5, 6, 3);
 		// g.connect(3, 4, 10);
 		// g.connect(6, 5, 10);
-		Graph_Algo gr = new Graph_Algo();
-		gr.init(g);
+		Graph_Algo gr = new Graph_Algo(g);
+//		gr.init(g);
 		System.out.println(gr.shortestPathDist(0, 6));
 		List<node_data> list = gr.shortestPath(0, 6);
-		for (node_data n : list)
-			System.out.print(n.getKey() + "-->");
-		System.out.println();
+		int i=0;
+		for (;i<list.size()-1;i++)
+			System.out.print(list.get(i).getKey() + "-->");
+		System.out.println(list.get(i).getKey());
 		System.out.println(gr.isConnected());
 		graph copy1 = new DGraph();
 		copy1 = gr.copy();
-		Graph_Algo gr_copy = new Graph_Algo();
-		gr_copy.init(copy1);
+		Graph_Algo gr_copy = new Graph_Algo(copy1);
+//		gr_copy.init(copy1);
 		System.out.println(gr_copy.shortestPathDist(0, 6));
-		for (node_data n : gr_copy.shortestPath(0, 6))
-			System.out.print(n.getKey() + "-->");
+		list=gr_copy.shortestPath(0, 6);
+		for (i=0;i<list.size()-1;i++)
+			System.out.print(list.get(i).getKey() + "-->");
+		System.out.println(list.get(i).getKey());
 		System.out.println();
 		g.connect(2, 0, 50);
 		g.connect(3, 2, 10);
@@ -308,18 +330,20 @@ public class Graph_Algo implements graph_algorithms {
 		g.connect(4, 3, 5);
 		g.connect(1, 0, 1);
 
-		gr.init(g);
+		gr = new Graph_Algo(g);
+//		gr.init(g);
 		System.out.println(gr.isConnected());
 		List<Integer> t = new ArrayList();
 		t.add(0);
 		t.add(1);
 		t.add(2);
 		t.add(4);
-		t.add(5);
+//		t.add(5);
 		t.add(6);
-		t.add(3);
-//		t.add(0);
-		for (node_data n : gr.TSP(t))
-			System.out.print(n.getKey() + "-->");
+//		t.add(3);
+		list=gr.TSP(t);
+		for (i=0;i<list.size()-1;i++)
+			System.out.print(list.get(i).getKey() + "-->");
+		System.out.println(list.get(i).getKey());
 	}
 }

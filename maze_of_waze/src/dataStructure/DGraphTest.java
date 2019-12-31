@@ -9,6 +9,7 @@ import java.util.Iterator;
 
 import org.junit.jupiter.api.Test;
 
+import sun.jvm.hotspot.utilities.AssertionFailure;
 import utils.Point3D;
 
 class DGraphTest {
