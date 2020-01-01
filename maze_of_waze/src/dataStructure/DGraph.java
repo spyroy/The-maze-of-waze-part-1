@@ -11,7 +11,7 @@ import java.util.Set;
 import javax.management.RuntimeErrorException;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
-public class DGraph<edgeID> implements graph, Serializable {
+public class DGraph<edgeID> implements graph,Serializable {
 
 	private int edgescount = 0;
 	private int MC = 0;

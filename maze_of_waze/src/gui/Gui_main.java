@@ -45,6 +45,14 @@ public class Gui_main {
 		g.connect(n7.getKey(), n4.getKey(), 42);
 		g.connect(n1.getKey(), n5.getKey(), 23);
 		g.connect(n6.getKey(), n2.getKey(), 4.20);
+		g.connect(n5.getKey(), n1.getKey(), 21.1);
+		g.connect(n2.getKey(), n4.getKey(), 88.2);
+		g.connect(n2.getKey(), n6.getKey(), 40);
+		g.connect(n4.getKey(), n7.getKey(), 4.55);
+		g.connect(n4.getKey(), n8.getKey(), 50.22);
+		g.connect(n3.getKey(), n5.getKey(), 4.60);
+		g.connect(n4.getKey(), n6.getKey(), 4.23);
+		g.connect(n8.getKey(), n4.getKey(), 4.78);
 
 		Graph_Gui a = new Graph_Gui(g);
 		a.setVisible(true);

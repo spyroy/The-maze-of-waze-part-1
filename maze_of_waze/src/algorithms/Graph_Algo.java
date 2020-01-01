@@ -26,7 +26,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 
 /**
  * This empty class represents the set of graph-theory algorithms which should
@@ -35,7 +34,7 @@ import java.io.Serializable;
  * @author
  *
  */
-public class Graph_Algo implements graph_algorithms, Serializable {
+public class Graph_Algo implements graph_algorithms {
 
 	public HashMap<Integer, node_data> nodesMap = new HashMap<Integer, node_data>();
 	public HashMap<Integer, HashMap<Integer, edge_data>> edgesMap = new HashMap<Integer, HashMap<Integer, edge_data>>();
@@ -206,6 +205,9 @@ public class Graph_Algo implements graph_algorithms, Serializable {
 		if (targets.isEmpty())
 			return null;
 		Graph_Algo gr = new Graph_Algo(g);
+		if(!gr.isConnected()) {
+			return null;
+		}
 //		gr.init(g);
 		Collections.sort(targets);
 		List<node_data> tmp = new ArrayList<node_data>();
@@ -221,7 +223,8 @@ public class Graph_Algo implements graph_algorithms, Serializable {
 			i++;
 		}
 		tmp.addAll(gr.shortestPath(src, src));
-		return tmp;
+		return tmp;}
+	
 
 //		graph g = new DGraph();
 //		Iterator it = targets.iterator();
@@ -238,7 +241,7 @@ public class Graph_Algo implements graph_algorithms, Serializable {
 //		for(node_data n : gr.getV()) {
 //			nodes.addAll(n.)
 //		}
-	}
+	
 
 	@Override
 	/**
@@ -280,13 +283,15 @@ public class Graph_Algo implements graph_algorithms, Serializable {
 		Point3D p5 = new Point3D(-5, -10, -7);
 		Point3D p6 = new Point3D(6, 111, 2);
 		Point3D p7 = new Point3D(4.2, 5.5, -50);
-		node n1 = new node(6, p1, 2);
-		node n2 = new node(5, p2, 1);
-		node n3 = new node(4, p3, 1);
-		node n4 = new node(3, p4, 1);
-		node n5 = new node(2, p5, 1);
-		node n6 = new node(1, p6, 1);
-		node n7 = new node(0, p7, 1);
+		Point3D p8 = new Point3D(23, 26, 436);
+		node n1 = new node(1, p1, 2);
+		node n2 = new node(2, p2, 1);
+		node n3 = new node(3, p3, 1);
+		node n4 = new node(4, p4, 1);
+		node n5 = new node(5, p5, 1);
+		node n6 = new node(6, p6, 1);
+		node n7 = new node(7, p7, 1);
+		node n8 = new node(8, p8, 1);
 		g.addNode(n1);
 		g.addNode(n2);
 		g.addNode(n3);
@@ -294,21 +299,23 @@ public class Graph_Algo implements graph_algorithms, Serializable {
 		g.addNode(n5);
 		g.addNode(n6);
 		g.addNode(n7);
-		g.connect(0, 2, 7);
-		g.connect(0, 1, 5);
-		g.connect(2, 3, 2);
-		g.connect(1, 3, 4);
-		g.connect(2, 4, 3);
-		g.connect(1, 4, 9);
-		g.connect(4, 5, 2);
-		g.connect(4, 6, 1);
-		g.connect(5, 6, 3);
-		// g.connect(3, 4, 10);
-		// g.connect(6, 5, 10);
+		g.addNode(n8);
+		g.connect(1, 2, 7);
+		g.connect(2, 1, 2.77);
+		g.connect(1, 5, 23);
+		g.connect(5, 3, 10);
+		g.connect(2, 3, 4.5);
+		g.connect(6, 2, 42);
+		g.connect(6, 4, 4.11);
+		g.connect(7, 4, 42);
+//		g.connect(5, 3, 3);
+//		g.connect(3, 4, 10);
+//		g.connect(6, 5, 10);
+		
 		Graph_Algo gr = new Graph_Algo(g);
 //		gr.init(g);
-		System.out.println(gr.shortestPathDist(0, 6));
-		List<node_data> list = gr.shortestPath(0, 6);
+		System.out.println(gr.shortestPathDist(1, 2));
+		List<node_data> list = gr.shortestPath(1, 2);
 		int i=0;
 		for (;i<list.size()-1;i++)
 			System.out.print(list.get(i).getKey() + "-->");
@@ -318,30 +325,30 @@ public class Graph_Algo implements graph_algorithms, Serializable {
 		copy1 = gr.copy();
 		Graph_Algo gr_copy = new Graph_Algo(copy1);
 //		gr_copy.init(copy1);
-		System.out.println(gr_copy.shortestPathDist(0, 6));
-		list=gr_copy.shortestPath(0, 6);
+		System.out.println(gr_copy.shortestPathDist(1, 2));
+		list=gr_copy.shortestPath(1, 2);
 		for (i=0;i<list.size()-1;i++)
 			System.out.print(list.get(i).getKey() + "-->");
 		System.out.println(list.get(i).getKey());
 		System.out.println();
-		g.connect(2, 0, 50);
-		g.connect(3, 2, 10);
-		g.connect(3, 1, 1);
-		g.connect(6, 4, 2);
-		g.connect(4, 3, 5);
-		g.connect(1, 0, 1);
+//		g.connect(2, 0, 50);
+//		//g.connect(3, 2, 10);
+//		g.connect(3, 1, 1);
+//		g.connect(6, 4, 2);
+//		g.connect(4, 3, 5);
+//		g.connect(1, 0, 1);
 
 		gr = new Graph_Algo(g);
 //		gr.init(g);
 		System.out.println(gr.isConnected());
 		List<Integer> t = new ArrayList();
-		t.add(0);
 		t.add(1);
-		t.add(2);
-		t.add(4);
-//		t.add(5);
-		t.add(6);
-//		t.add(3);
+		t.add(5);
+		t.add(3);
+////		t.add(4);
+////		t.add(5);
+////		t.add(6);
+//		t.add(2);
 		list=gr.TSP(t);
 		for (i=0;i<list.size()-1;i++)
 			System.out.print(list.get(i).getKey() + "-->");
