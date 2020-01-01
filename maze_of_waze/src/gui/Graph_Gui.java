@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -46,7 +47,7 @@ import utils.*;
  * @authors Matan Greenberg, Or Mendel
  */
 
-public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
+public class Graph_Gui extends JFrame implements ActionListener, MouseListener  {
 
 	graph gr;
 
@@ -212,48 +213,6 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 				e.printStackTrace();
 			}
 			break;
-//		case "Add node":
-//			System.out.println("Adding new node...");
-//			JFrame jf=new JFrame();
-//			String tmp = JOptionPane.showInputDialog(jf,"Enter node key:");
-//			int key=Integer.parseInt(tmp);
-//			jf=new JFrame();
-//			tmp=JOptionPane.showInputDialog(jf,"Enter coordinates:");
-//			MouseEvent m = 
-
-//			mouseClicked_forCircle();
-//			KeyEvent m = null;
-//			int xx = m.
-//			int yy = m.getYOnScreen();
-//			Point3D p = new Point3D(xx,yy,0);
-//			node no = new node(key,p,1);
-//			gr.addNode(no);
-//			Graphics d = null;
-//			d.fillOval(xx, yy, 11, 11);
-//			break;
-//		case "Find shortest Path": //////////////////////////////////////// gotta check, and fix! ////////
-//			try {
-//				System.out.println("Show Shortest Path ");
-//				JFrame SSPin = new JFrame();
-//				String SourceNodeSSP = JOptionPane.showInputDialog(SSPin, "Enter Source-Node:");
-//				String DestNodeSSP = JOptionPane.showInputDialog(SSPin, "Enter Destination-Node:");
-//
-//				int srcSSP = Integer.parseInt(SourceNodeSSP);
-//				int destSSP = Integer.parseInt(DestNodeSSP);
-//
-//				Graph_Algo newGSSP = new Graph_Algo(gr);
-////				newGSSP.init(gr);
-//
-//				List<node_data> SSPdis = newGSSP.shortestPath(srcSSP, destSSP);
-//				List<edge_data> SSPe = new ArrayList<edge_data>();
-//				for (int i = 0; i < SSPdis.size() - 1; i++) {
-//					SSPe.add(this.gr.getEdge(SSPdis.get(i).getKey(), SSPdis.get(i + 1).getKey()));
-//				}
-//				JFrame SSP = new JFrame("Show Shortest Path: ");
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//			break;
 
 
 		case "Traveling Salesman Problem (TSP)":
@@ -330,8 +289,12 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 				}
 			});
 			fd.setVisible(true);
-			String fileName = fd.getFile();
-			g.save(fileName);
+			if(fd.getDirectory()!=null&&fd.getFile()!=null) {
+				String fileName = fd.getFile();
+				String directoryName = fd.getDirectory();
+	            g.save(directoryName + fileName);
+	            JOptionPane.showMessageDialog(this, "savd successfully to: " + fileName + " in directory: " + directoryName, "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+			}
 		} catch (Exception ex) {
 			System.out.print("Error saving file " + ex);
 			System.exit(2);
@@ -355,7 +318,9 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 			fd.setVisible(true);
 			String folder = fd.getDirectory();
 			String fileName = fd.getFile();
-			g.init(fileName);
+			g.init(fileName + folder);
+			this.gr = g.copy();
+			repaint();
 		} catch (Exception ex) {
 			System.out.print("Error reading file " + ex);
 			System.exit(2);

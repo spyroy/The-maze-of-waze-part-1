@@ -26,6 +26,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * This empty class represents the set of graph-theory algorithms which should
@@ -34,7 +35,7 @@ import java.io.ObjectOutputStream;
  * @author
  *
  */
-public class Graph_Algo implements graph_algorithms {
+public class Graph_Algo implements graph_algorithms, Serializable {
 
 	public HashMap<Integer, node_data> nodesMap = new HashMap<Integer, node_data>();
 	public HashMap<Integer, HashMap<Integer, edge_data>> edgesMap = new HashMap<Integer, HashMap<Integer, edge_data>>();
