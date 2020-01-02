@@ -148,11 +148,11 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 		file.add(item4);
 
 		MenuItem item4_1 = new MenuItem("Save as jpg");
-		item4.addActionListener(this);
+		item4_1.addActionListener(this);
 		file.add(item4_1);
 		
 		MenuItem item4_2 = new MenuItem("new graph");
-		item4.addActionListener(this);
+		item4_2.addActionListener(this);
 		file.add(item4_2);
 
 		MenuItem item5 = new MenuItem("Find shortest Path");
@@ -224,11 +224,26 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 		
 
 		private void new_graph() {
-			Graph_Algo g = new Graph_Algo(this.gr);
-			for(node_data n : gr.getV()) {
-				gr.removeNode(n.getKey());
+			try {
+				System.out.println(gr.toString());
+				int i = 0;
+				while(!gr.getV().isEmpty()) {
+					if(gr.getNode(i)!=null)
+						gr.removeNode(i);
+					i++;
+				}
+				repaint();
 			}
-			repaint();
+//				for(node_data n : gr.getV()) {
+//					if(gr.getNode(n.getKey())!=null)
+//						gr.removeNode(n.getKey());
+//					repaint();
+//				}
+				
+			
+			catch (Exception e) {
+				
+			}
 	}
 
 		private void is_connected() {
