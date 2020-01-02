@@ -53,11 +53,13 @@ import utils.*;
 public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 
 	graph gr;
+	private int mc;
 	int x;
 	int y;
 
 	public Graph_Gui(graph g) {
 		initGUI(g);
+		mc = g.getMC();
 	}
 
 	public void paint(Graphics d) {
@@ -142,14 +144,6 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 		MenuItem item3 = new MenuItem("Save as textFile");
 		item3.addActionListener(this);
 		file.add(item3);
-
-		MenuItem item4 = new MenuItem("Save as png");
-		item4.addActionListener(this);
-		file.add(item4);
-
-		MenuItem item4_1 = new MenuItem("Save as jpg");
-		item4_1.addActionListener(this);
-		file.add(item4_1);
 		
 		MenuItem item4_2 = new MenuItem("new graph");
 		item4_2.addActionListener(this);
@@ -234,13 +228,6 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 				}
 				repaint();
 			}
-//				for(node_data n : gr.getV()) {
-//					if(gr.getNode(n.getKey())!=null)
-//						gr.removeNode(n.getKey());
-//					repaint();
-//				}
-				
-			
 			catch (Exception e) {
 				
 			}
@@ -439,6 +426,11 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 		int y = e.getY();
 		int radius = 20;
 		drawCircle(x - (radius / 2), y - (radius / 2));
+	}
+	
+	private void re() {
+		if(mc != gr.getMC())
+			repaint();
 	}
 
 	@Override

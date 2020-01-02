@@ -106,8 +106,8 @@ public class Graph_Algo implements graph_algorithms {
 		Iterator<node_data> it = nodes.iterator();
 		Graph_Algo gr = new Graph_Algo(g);
 //		gr.init(g);
-		if(nodes.isEmpty())
-			return false;
+//		if(nodes.isEmpty())
+//			return false;
 		while (it.hasNext()) {
 			node_data tmp = it.next();
 			for (node_data n : g.getV()) {
