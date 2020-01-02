@@ -98,7 +98,7 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 				}
 				// draw nodes-key's
 				d.setColor(Color.RED);
-				d.drawString("" + n.getKey(), p.ix() + 9, p.iy() + 12);
+				d.drawString("" + n.getKey(), p.ix() + 7, p.iy() + 12);
 			}
 		}
 	}
@@ -150,6 +150,10 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 		MenuItem item4_1 = new MenuItem("Save as jpg");
 		item4.addActionListener(this);
 		file.add(item4_1);
+		
+		MenuItem item4_2 = new MenuItem("new graph");
+		item4.addActionListener(this);
+		file.add(item4_2);
 
 		MenuItem item5 = new MenuItem("Find shortest Path");
 		item5.addActionListener(this);
@@ -211,9 +215,21 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 		case "isConnected?":
 			is_connected();
 			break;
+		
+		case "new graph":
+			new_graph();
+			break;
 		}
 	}
 		
+
+		private void new_graph() {
+			Graph_Algo g = new Graph_Algo(this.gr);
+			for(node_data n : gr.getV()) {
+				gr.removeNode(n.getKey());
+			}
+			repaint();
+	}
 
 		private void is_connected() {
 			Graph_Algo g = new Graph_Algo(this.gr);
@@ -381,20 +397,20 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 	}
 	//**********************************TODO**********************************
 	private void add_node() {
-		String s = JOptionPane.showInputDialog(this, "enter a key to the new node and click on screen");
-		JOptionPane.showMessageDialog( this, "click on the screen to create a new node","INFORMATION ", JOptionPane.INFORMATION_MESSAGE);
+		String s = JOptionPane.showInputDialog(this, "enter a key to the new node and double click on screen");
+		JOptionPane.showMessageDialog( this, "double click on the screen to create a new node","INFORMATION ", JOptionPane.INFORMATION_MESSAGE);
 		int k = Integer.parseInt(s);
 		addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-            	Point3D pnt = new Point3D(e.getX(),e.getY());
-            	node n = new node(k,pnt,0);
-                gr.addNode(n);
-                repaint();
-                
+            	if(e.getClickCount()==2){
+            		Point3D pnt = new Point3D(e.getX(),e.getY());
+	            	node n = new node(k,pnt,0);
+	                gr.addNode(n);
+	                repaint();
+                }
             }
         });
-		return;
 	}
 
 	@Override
@@ -439,6 +455,8 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 		System.out.println("mouseExited");
 //		System.exit(1000);
 	}
+	
+
 	
 
 	/**
