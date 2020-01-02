@@ -13,5 +13,5 @@
 ## gui -
 ### a graphic window to show all functions above in gui.
 ## class diagram -
-![](https://raw.githubusercontent.com/spyroy/mtg2/master/my%20class.gif)
+![](https://github.com/spyroy/mtg2/blob/master/images/diagram.gif)
 OOP project 2
