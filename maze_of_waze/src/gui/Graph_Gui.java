@@ -2,15 +2,19 @@ package gui;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.FileDialog;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -49,6 +53,8 @@ import utils.*;
 public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 
 	graph gr;
+	int x;
+	int y;
 
 	public Graph_Gui(graph g) {
 		initGUI(g);
@@ -202,79 +208,22 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 			TSP();
 			break;
 			
-			
-
-
-		case "Save as png": // undone !
-			System.out.println("Save as png ");
-			try {
-				BufferedImage i = new BufferedImage(this.getWidth(), this.getHeight() + 45, BufferedImage.TYPE_INT_RGB);
-				Graphics g = i.getGraphics();
-				paint(g);
-				ImageIO.write(i, "png", new File("SavedGraph.png"));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		case "isConnected?":
+			is_connected();
 			break;
-//		case "Add node":
-//			System.out.println("Adding new node...");
-//			JFrame jf=new JFrame();
-//			String tmp = JOptionPane.showInputDialog(jf,"Enter node key:");
-//			int key=Integer.parseInt(tmp);
-//			jf=new JFrame();
-//			tmp=JOptionPane.showInputDialog(jf,"Enter coordinates:");
-//			MouseEvent m = 
+		}
+	}
+		
 
-//			mouseClicked_forCircle();
-//			KeyEvent m = null;
-//			int xx = m.
-//			int yy = m.getYOnScreen();
-//			Point3D p = new Point3D(xx,yy,0);
-//			node no = new node(key,p,1);
-//			gr.addNode(no);
-//			Graphics d = null;
-//			d.fillOval(xx, yy, 11, 11);
-//			break;
-//		case "Find shortest Path": //////////////////////////////////////// gotta check, and fix! ////////
-//			try {
-//				System.out.println("Show Shortest Path ");
-//				JFrame SSPin = new JFrame();
-//				String SourceNodeSSP = JOptionPane.showInputDialog(SSPin, "Enter Source-Node:");
-//				String DestNodeSSP = JOptionPane.showInputDialog(SSPin, "Enter Destination-Node:");
-//
-//				int srcSSP = Integer.parseInt(SourceNodeSSP);
-//				int destSSP = Integer.parseInt(DestNodeSSP);
-//
-//				Graph_Algo newGSSP = new Graph_Algo(gr);
-////				newGSSP.init(gr);
-//
-//				List<node_data> SSPdis = newGSSP.shortestPath(srcSSP, destSSP);
-//				List<edge_data> SSPe = new ArrayList<edge_data>();
-//				for (int i = 0; i < SSPdis.size() - 1; i++) {
-//					SSPe.add(this.gr.getEdge(SSPdis.get(i).getKey(), SSPdis.get(i + 1).getKey()));
-//				}
-//				JFrame SSP = new JFrame("Show Shortest Path: ");
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//			break;
-
-
-
-
-		case "isConnected?": ////////////////////////////////////////// done - gotta check //////////////
-			Graph_Algo isCga = new Graph_Algo(this.gr);
-//			isCga.init(this.gr);
-			if (isCga.isConnected()) {
-				System.out.println("The graph is Connected !");
+		private void is_connected() {
+			Graph_Algo g = new Graph_Algo(this.gr);
+			if (g.isConnected()) {
 	            JOptionPane.showMessageDialog(this, "The graph is connected", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
 
 			} else {
-				System.out.println("The graph is not Connected !");
-				break;
+				JOptionPane.showMessageDialog(this, "The graph is not connected", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
-	}
 
 	private void TSP() {
 		Graph_Algo g = new Graph_Algo(gr);
@@ -402,10 +351,10 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 		String weight = JOptionPane.showInputDialog("insert weight for edge");
 		//Collection c = (Collection) g.nodesMap;
 		try {
-//			if (g.nodesMap.get(Integer.parseInt(src)) == null || g.nodesMap.get(Integer.parseInt(dest)) == null) {
-//				JOptionPane.showMessageDialog(this, "ERROR : 1 key or more hadn't found in the graph", "ERROR ",JOptionPane.ERROR_MESSAGE);
-//				return;
-//			}
+			if(gr.getNode(Integer.parseInt(src)) == null||gr.getNode(Integer.parseInt(dest)) == null) {
+				JOptionPane.showMessageDialog(this, "ERROR: cannot find source/destination " , "ERROR ", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			gr.connect(Integer.parseInt(src), Integer.parseInt(dest), Double.parseDouble(weight));
 			JOptionPane.showMessageDialog(this, "success", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
 		} catch (Exception e) {
@@ -432,7 +381,20 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 	}
 	//**********************************TODO**********************************
 	private void add_node() {
-
+		String s = JOptionPane.showInputDialog(this, "enter a key to the new node and click on screen");
+		JOptionPane.showMessageDialog( this, "click on the screen to create a new node","INFORMATION ", JOptionPane.INFORMATION_MESSAGE);
+		int k = Integer.parseInt(s);
+		addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            	Point3D pnt = new Point3D(e.getX(),e.getY());
+            	node n = new node(k,pnt,0);
+                gr.addNode(n);
+                repaint();
+                
+            }
+        });
+		return;
 	}
 
 	@Override
@@ -470,12 +432,14 @@ public class Graph_Gui extends JFrame implements ActionListener, MouseListener {
 	public void mouseEntered(MouseEvent e) {
 		System.out.println("mouseEntered");
 	}
+	
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		System.out.println("mouseExited");
 //		System.exit(1000);
 	}
+	
 
 	/**
 	 * Important function!!!

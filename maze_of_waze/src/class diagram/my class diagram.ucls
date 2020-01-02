@@ -1,169 +1,211 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="algorithms.Graph_Algo" project="maze_of_waze" 
-    file="/maze_of_waze/src/algorithms/Graph_Algo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="340" width="380" x="1173" y="37"/>    
+  <class id="1" language="java" name="algorithms.Graph_Algo" project="waze_of_maze" 
+    file="/waze_of_maze/src/algorithms/Graph_Algo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="340" width="380" x="1996" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="2" language="java" name="algorithms.graph_algorithms" project="maze_of_waze" 
-    file="/maze_of_waze/src/algorithms/graph_algorithms.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="214" width="241" x="1312" y="489"/>    
+  <interface id="2" language="java" name="algorithms.graph_algorithms" project="waze_of_maze" 
+    file="/waze_of_maze/src/algorithms/graph_algorithms.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="214" width="241" x="2048" y="2443"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="3" language="java" name="algorithms.node_Comperator" project="maze_of_waze" 
-    file="/maze_of_waze/src/algorithms/node_Comperator.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="226" x="600" y="37"/>    
+  <class id="3" language="java" name="algorithms.node_Comperator" project="waze_of_maze" 
+    file="/waze_of_maze/src/algorithms/node_Comperator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="226" x="256" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="dataStructure.DGraph" project="maze_of_waze" 
-    file="/maze_of_waze/src/dataStructure/DGraph.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="358" width="373" x="1593" y="37"/>    
+  <class id="4" language="java" name="dataStructure.DGraph" project="waze_of_maze" 
+    file="/waze_of_maze/src/dataStructure/DGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="358" width="373" x="1583" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="dataStructure.DGraphTest" project="maze_of_waze" 
-    file="/maze_of_waze/src/dataStructure/DGraphTest.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="304" width="158" x="402" y="37"/>    
+  <class id="5" language="java" name="dataStructure.DGraphTest" project="waze_of_maze" 
+    file="/waze_of_maze/src/dataStructure/DGraphTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="304" width="158" x="58" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="6" language="java" name="dataStructure.edge_data" project="maze_of_waze" 
-    file="/maze_of_waze/src/dataStructure/edge_data.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="196" width="135" x="2219" y="489"/>    
+  <interface id="6" language="java" name="dataStructure.edge_data" project="waze_of_maze" 
+    file="/waze_of_maze/src/dataStructure/edge_data.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="196" width="135" x="2653" y="2443"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="7" language="java" name="dataStructure.edge" project="maze_of_waze" 
-    file="/maze_of_waze/src/dataStructure/edge.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="322" width="136" x="2219" y="37"/>    
+  <class id="7" language="java" name="dataStructure.edge" project="waze_of_maze" 
+    file="/waze_of_maze/src/dataStructure/edge.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="322" width="136" x="2652" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="8" language="java" name="dataStructure.graph" project="maze_of_waze" 
-    file="/maze_of_waze/src/dataStructure/graph.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="268" width="212" x="1060" y="489"/>    
+  <interface id="8" language="java" name="dataStructure.graph" project="waze_of_maze" 
+    file="/waze_of_maze/src/dataStructure/graph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="268" width="212" x="1583" y="2443"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="9" language="java" name="dataStructure.node_data" project="maze_of_waze" 
-    file="/maze_of_waze/src/dataStructure/node_data.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="232" width="173" x="1593" y="489"/>    
+  <interface id="9" language="java" name="dataStructure.node_data" project="waze_of_maze" 
+    file="/waze_of_maze/src/dataStructure/node_data.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="232" width="173" x="1835" y="2443"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="10" language="java" name="dataStructure.node" project="maze_of_waze" 
-    file="/maze_of_waze/src/dataStructure/node.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="376" width="173" x="2006" y="37"/>    
+  <class id="10" language="java" name="dataStructure.node" project="waze_of_maze" 
+    file="/waze_of_maze/src/dataStructure/node.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="358" width="173" x="2416" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="gui.Graph_Gui" project="maze_of_waze" file="/maze_of_waze/src/gui/Graph_Gui.java" 
+  <class id="11" language="java" name="gui.Graph_Gui" project="waze_of_maze" file="/waze_of_maze/src/gui/Graph_Gui.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="412" width="267" x="866" y="37"/>    
+    <position height="430" width="267" x="1106" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="gui.Gui_main" project="maze_of_waze" file="/maze_of_waze/src/gui/Gui_main.java" 
+  <class id="12" language="java" name="gui.Gui_main" project="waze_of_maze" file="/waze_of_maze/src/gui/Gui_main.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="130" x="41" y="37"/>    
+    <position height="106" width="130" x="1413" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="utils.Range" project="maze_of_waze" file="/maze_of_waze/src/utils/Range.java" 
+  <class id="13" language="java" name="utils.Point3D" project="waze_of_maze" file="/waze_of_maze/src/utils/Point3D.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="268" width="151" x="211" y="37"/>    
+    <position height="862" width="274" x="2329" y="2443"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="14">    
+  <class id="14" language="java" name="utils.Range" project="waze_of_maze" file="/waze_of_maze/src/utils/Range.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="268" width="151" x="915" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="utils.StdDraw" project="waze_of_maze" file="/waze_of_maze/src/utils/StdDraw.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="2356" width="343" x="522" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="16">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="17" name="gr"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="19">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="20" name="nodeMap"/>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="22">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="23" name="std"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="25">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
-  <association id="15">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="16" name="gr"/>      
-      <multiplicity id="17" minimum="0" maximum="1"/>    
+  <association id="26">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="27" name="nodesMap"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="30" name="g"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="18">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <realization id="19">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="9"/>  
-  </realization>  
-  <realization id="20">    
+  <realization id="32">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="8"/>  
   </realization>  
-  <association id="21">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="22" name="nodesMap"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
+  <realization id="33">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="34">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="35" name="location"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="24">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="25" name="g"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
+  <realization id="37">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <association id="38">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="39" name="ORIGIN"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="27">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="28" name="nodeMap"/>      
-      <multiplicity id="29" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
